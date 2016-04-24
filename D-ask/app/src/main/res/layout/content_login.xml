@@ -1,19 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/login"
+    tools:context="dwijo.com.br.d_ask.LoginActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="dwijo.com.br.d_ask.LoginActivity"
-    tools:showIn="@layout/login">
+    android:orientation="vertical"
+    android:background="#4F68A7" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/dask_logo" />
+
+        <EditText
+            android:id="@+id/editText_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edit_text_pattern"
+            android:hint="Login ou E-mail"
+            android:textColorHint="#B7BCCA">
+            <requestFocus/></EditText>
+
+
+        <EditText
+            android:id="@+id/editText_senha"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_pattern"
+            android:hint="Senha"
+            android:textColorHint="#B7BCCA" />
+
+        <Button
+            android:id="@+id/btlogar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/login_button_pattern"
+            android:text="entrar"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="45dp"
+            android:layout_gravity="center" >
+
+            <TextView
+                android:id="@+id/novo_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="35dp"
+                android:gravity="center"
+                android:text="@string/novo_usuario"
+                android:textSize="14dp"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/recuperar_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="35dp"
+                android:gravity="center"
+                android:text="@string/recuperar_senha"
+                android:textSize="14dp"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

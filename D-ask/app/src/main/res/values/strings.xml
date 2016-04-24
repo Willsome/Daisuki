@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">D-ask</string>
     <string name="action_settings">Settings</string>
+
+    // LOGIN
+    <string name="novo_usuario">"Novo \nUsuário"</string>
+    <string name="recuperar_senha">"Recuperar \nSenha"</string>
+    // LOGIN
+
 </resources>
