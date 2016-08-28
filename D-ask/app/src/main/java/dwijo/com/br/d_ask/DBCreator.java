@@ -16,7 +16,7 @@ public class DBCreator extends SQLiteOpenHelper {
 
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_USERS);
 
     }
@@ -25,7 +25,8 @@ public class DBCreator extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldversion, int newversion) {
 
     }
-    public DBCreator(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DBCreator(Context context) {
+
+        super(context, DB_NAME, null, DB_VERSION);
     }
 }
