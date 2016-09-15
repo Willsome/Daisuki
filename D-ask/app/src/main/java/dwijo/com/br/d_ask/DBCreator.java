@@ -11,13 +11,31 @@ public class DBCreator extends SQLiteOpenHelper {
     private static String DB_NAME = "DB_DASK";
     private static int DB_VERSION= 1;
 
-    private static String TABLE_USERS =
-            "CREATE TABLE users{"+ "password integer primary key ,"+"nome text"+ "email text"+"}";
+    private static String USER =
+            "CREATE TABLE USER{"+ "iduser integer primary key ,"+"name text"+ "email text"+"phone int"+
+                    "userpoints int"+"}";
+    private static String QUESTION =
+            "CREATE TABLE QUESTION{"+ "idquestion integer primary key ,"+"iduser int"+ "question text"+"text string"+
+                    "idarea int"+"}";
+    private static String TAG =
+            "CREATE TABLE TAG{"+ "idtag integer primary key ,"+"nametag text"+ "description text"+"}";
+    private static String MEDAL =
+            "CREATE TABLE MEDAL{"+ "idmedal integer primary key ,"+"namedal text"+ "descriptionmedal text"+"}";
+    private static String ANSWER =
+            "CREATE TABLE ANSWER{"+ "idanswer integer primary key ,"+"iduser int"+ "idquestion int"+"text string"+
+                    "hate int"+"}";
+    private static String AREA =
+            "CREATE TABLE AREA{"+ "idarea integer primary key ,"+"namearea text"+ "descriptionarea text"+"}";
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(TABLE_USERS);
+        db.execSQL(USER);
+        db.execSQL(QUESTION);
+        db.execSQL(TAG);
+        db.execSQL(MEDAL);
+        db.execSQL(ANSWER);
+        db.execSQL(AREA);
 
     }
 
