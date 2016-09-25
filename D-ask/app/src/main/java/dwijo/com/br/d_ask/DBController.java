@@ -1,6 +1,9 @@
 package dwijo.com.br.d_ask;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
 
 
 /**
@@ -26,5 +29,22 @@ public class DBController {
         SQLiteDatabase db =dbCreator.getWritableDatabase();
         db.execSQL(sql);
 
+
     }
+    public ArrayList<String> getallUsers(){
+        SQLiteDatabase db = dbCreator.getReadableDatabase();
+        String sql = "select nome from USER";
+        Cursor cursor = db.rawQuery(sql,null);
+        ArrayList<String> Users = null;
+        if (cursor != null && cursor.moveToFirst()){
+            Users = new ArrayList<String>();
+            do {
+                Users.add(cursor.getString(0));
+
+            }while(cursor.moveToNext());
+
+
+        }
+        return Users;
+    };
 }
