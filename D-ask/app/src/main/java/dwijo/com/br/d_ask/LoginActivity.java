@@ -1,5 +1,8 @@
 package dwijo.com.br.d_ask;
 
+import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -37,12 +40,25 @@ public class LoginActivity extends AppCompatActivity {
                     alerta.setMessage("Insira seu login ou e-mail.");
                     alerta.setNeutralButton("Ok", null);
                     alerta.show();
-                } else if (editText_senha.getText().toString().length() == 0){
+                } else if (editText_senha.getText().toString().length() == 0) {
                     AlertDialog.Builder alerta = new AlertDialog.Builder(LoginActivity.this);
                     alerta.setTitle("Aviso !");
                     alerta.setMessage("Insira sua senha.");
                     alerta.setNeutralButton("Ok", null);
                     alerta.show();
+                } else {
+                    SQLiteDatabase db = openOrCreateDatabase("USER.db",Context.MODE_PRIVATE, null);
+                    StringBuilder sqlAlunosBusca = new StringBuilder();
+                    sqlAlunosBusca.append("SELECT count(*) FROM USER WHERE name='" + editText_login + "' AND iduser='" + editText_senha + "';");
+                    db.execSQL(sqlAlunosBusca.toString());
+                    if (/*sqlAlunosBusca igual a "1" loga no sistema*/) {
+                    } else {
+                        //reponde que o usuário ou senha incorretos
+                    }
+
+                    Intent it = new Intent(getBaseContext(), Menu.class);
+                    startActivity(it);
+
                 }
             }
         });
